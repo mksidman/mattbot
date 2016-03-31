@@ -22,14 +22,14 @@ module.exports = function(robot) {
         res.send("The mean is " + mean);
         break;
       case "median":
-        numArray.sort( function(a,b) {return a - b;} );
+        var sortedArray = numArray.sort( function(a,b) {return a - b;} );
 
-        var half = Math.floor(numArray.length/2);
+        var half = Math.floor(sortedArray.length/2);
 
-        if (numArray.length % 2) {
-            var median = numArray[half];
+        if (sortedArray.length % 2) {
+            var median = sortedArray[half];
         } else {
-          var median = ((numArray[half-1] + numArray[half]) / 2.0);
+          var median = ((sortedArray[half-1] + sortedArray[half]) / 2.0);
         };
 
         res.send("The median is " + median);
